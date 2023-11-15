@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	char *lncontent;
 	FILE *fileptr;
 	size_t linesz = 0;
-	ssize_t read_res = 1;
+	ssize_t readres = 1;
 	stack_t *stack = NULL;
 	unsigned int count = 0;
 
@@ -28,13 +28,13 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (read_res > 0)
+	while (readres > 0)
 	{
 		lncontent = NULL;
-		read_res = getline(&lncontent, &linesz, fileptr);
+		readres = getline(&lncontent, &linesz, fileptr);
 		progctx.lncontent = lncontent;
 		count++;
-		if (read_res > 0)
+		if (readres > 0)
 		{
 			sq_execute(lncontent, &stack, count, fileptr);
 		}
