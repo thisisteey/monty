@@ -21,17 +21,22 @@ void stk_push(stack_t **top, unsigned int num)
 				flg = 1;
 		}
 		if (flg == 1)
-		{ fprintf(stderr, "L%d: usage: push integer\n", num);
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", num);
 			fclose(progctx.fileptr);
 			free(progctx.lncontent);
 			free_stk(*top);
-			exit(EXIT_FAILURE); }}
+			exit(EXIT_FAILURE);
+		}
+	}
 	else
-	{ fprintf(stderr, "L%d: usage: push integer\n", num);
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", num);
 		fclose(progctx.fileptr);
 		free(progctx.lncontent);
 		free_stk(*top);
-		exit(EXIT_FAILURE); }
+		exit(EXIT_FAILURE);
+	}
 	x = atoi(progctx.argval);
 	if (progctx.flags == 0)
 		qs_addnode(top, x);
@@ -47,7 +52,7 @@ void stk_push(stack_t **top, unsigned int num)
  */
 void stk_pop(stack_t **top, unsigned int count)
 {
-	stack_t *head;
+	stack_t *currhead;
 
 	if (*top == NULL)
 	{
@@ -57,9 +62,9 @@ void stk_pop(stack_t **top, unsigned int count)
 		free_stk(*top);
 		exit(EXIT_FAILURE);
 	}
-	head = *top;
-	*top = head->next;
-	free(head);
+	currhead = *top;
+	*top = currhead->next;
+	free(currhead);
 }
 
 /**
