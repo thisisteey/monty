@@ -8,8 +8,8 @@
  */
 void stk_rotl(stack_t **top, unsigned int count)
 {
-	(void)count;
 	stack_t *tmpnode = *top, *currhead;
+	(void)count;
 
 	if (*top == NULL || (*top)->next == NULL)
 	{
@@ -35,8 +35,8 @@ void stk_rotl(stack_t **top, unsigned int count)
  */
 void stk_rotr(stack_t **top, unsigned int count)
 {
-	(void)count;
 	stack_t *cpnode;
+	(void)count;
 
 	cpnode = *top;
 	if (*top == NULL || (*top)->next == NULL)
@@ -47,7 +47,7 @@ void stk_rotr(stack_t **top, unsigned int count)
 	{
 		cpnode = cpnode->next;
 	}
-	cpode->next = *top;
+	cpnode->next = *top;
 	cpnode->prev->next = NULL;
 	cpnode->prev = NULL;
 	(*top)->prev = cpnode;
