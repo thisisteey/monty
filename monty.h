@@ -87,8 +87,4 @@ void stk_rotr(stack_t **top, unsigned int count);
 int sq_execute(char *lncontent,
 		stack_t **top, unsigned int count, FILE *fileptr);
 
-char *mem_realloc(char *ptr, unsigned int prev_sz, unsigned int new_sz);
-ssize_t input_readline(char **buf, int fd);
-char *clean_string(char *str);
-
 #endif
